@@ -18,6 +18,11 @@ class CreateOnlyFieldSerializerMixin:
     def is_create_view(self):
         request = self.context.get('request')
         view = self.context.get('view')
+        # Added by Naresh to update metadata
+        fileuploadmetadata=self.context.get('filemetadata')
+        if request and fileuploadmetadata:
+            return True
+        # --end
 
         if request and view:
             if isinstance(view, CreateModelMixin) and request.method.lower() == 'post':

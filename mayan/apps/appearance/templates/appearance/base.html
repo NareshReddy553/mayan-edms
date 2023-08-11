@@ -10,6 +10,11 @@
 {% spaceless %}
 
 <script>
+    $(function(){
+        $('img').bind('contextmenu', function(e){
+        return false;
+        }); 
+    });
     if (typeof partialNavigation === 'undefined') {
         /* Check if the template was not loaded via AJAX
          * If not then reload the root path passing the

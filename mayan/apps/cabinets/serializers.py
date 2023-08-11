@@ -86,6 +86,15 @@ class CabinetDocumentAddSerializer(serializers.Serializer):
         source_permission=permission_cabinet_add_document
     )
 
+# added by Naresh for updating cabinate while uploading file
+class CabinetDocumentAddByCabinetIdSerializer(serializers.Serializer):
+    cabinet = FilteredPrimaryKeyRelatedField(
+        help_text=_(
+            'Primary key of the cabinet to add to the document.'
+        ), label=_('Cabinet ID'), source_model=Cabinet,
+        source_permission=permission_cabinet_add_document
+    )
+####
 
 class CabinetDocumentRemoveSerializer(serializers.Serializer):
     document = FilteredPrimaryKeyRelatedField(

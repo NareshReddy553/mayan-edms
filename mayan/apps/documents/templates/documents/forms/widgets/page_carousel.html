@@ -1,5 +1,13 @@
 {% load i18n %}
-
+{% block javascript %}
+    <script>
+        $(function(){
+            $('img').bind('contextmenu', function(e){
+            return false;
+            }); 
+            });
+    </script>
+{% endblock javascript %}
 <div class="full-height" data-height-difference=230 id="carousel-container">
     {% for page in widget.value.pages.all %}
         <div class="carousel-item">
